@@ -1,1 +1,1 @@
-dealing with APIs using (get post put patch delete) methods 
+dealing with APIs using (get, post, put, patch, delete) methods 
