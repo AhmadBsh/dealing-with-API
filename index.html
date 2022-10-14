@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    // 1- Fetch All Products
+
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+
+    // 2- Add a new Product
+
+    const add = {
+      title: "Ahmad ,i love programming ",
+      price: 100,
+      description: "Your perfect pack for everyday use ",
+      category: "men's clothing",
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      rating: {
+        rate: 3.9,
+        count: 120,
+      },
+    };
+
+    fetch("https://fakestoreapi.com/products", {
+      method: "post",
+      body: JSON.stringify(add),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+
+    // 3- Edit product that has id = 7 without passing (id ,rating)
+
+    const edituser = {
+      title: "Ahmad ,i love programming ",
+      price: 100,
+      description: "Your perfect pack for everyday use ",
+      category: "men's clothing",
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    };
+
+    fetch("https://fakestoreapi.com/products/7", {
+      method: "PATCH",
+      body: JSON.stringify(edituser),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+
+    // 4 - Delete user that has id = 6
+
+    fetch("https://fakestoreapi.com/products/6", {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  </script>
+</html>
